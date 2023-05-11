@@ -48,9 +48,15 @@ static char const RCSID[] =
 #include <signal.h>
 #include <net/ethernet.h>
 #include <net/if_arp.h>
+#include <linux/if.h>
+#include <linux/if_ether.h>
+#include <linux/in.h>
+#include <linux/in6.h>
 #include <linux/ppp_defs.h>
 #include <linux/if_ppp.h>
+#include <linux/if_pppol2tp.h>
 #include <linux/if_pppox.h>
+
 
 #ifndef _ROOT_PATH
 #define _ROOT_PATH ""

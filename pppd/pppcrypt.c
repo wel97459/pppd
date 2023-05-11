@@ -119,7 +119,7 @@ u_char *key;
 	MakeKey(key, des_key);
 	Expand(des_key, crypt_key);
 	errno = 0;
-	setkey((const char *)crypt_key);
+	DesSetkey(crypt_key);
 	if (errno != 0)
 		return (0);
 	return (1);
@@ -134,7 +134,7 @@ u_char *cipher;	/* OUT 8 octets */
 
 	Expand(clear, des_input);
 	errno = 0;
-	encrypt((char *)des_input, 0);
+	crypt((char *)des_input, 0);
 	if (errno != 0)
 		return (0);
 	Collapse(des_input, cipher);
@@ -150,7 +150,7 @@ u_char *clear;	/* OUT 8 octets */
 
 	Expand(cipher, des_input);
 	errno = 0;
-	encrypt((char *)des_input, 1);
+	crypt((char *)des_input, 1);
 	if (errno != 0)
 		return (0);
 	Collapse(des_input, clear);
